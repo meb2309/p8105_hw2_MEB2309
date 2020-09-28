@@ -64,10 +64,22 @@ precip_df=
 
 left_join(precip_df, month_df, by = "month")
 ```
-
 ## Problem 2
 
- ```{r}
- path_to_data = "./data/NYC_Transit_Subway_Entrance_And_Exit.csv"
- ```
- 
+```{r}
+path_to_data= "./data/NYC_Transit_Subway_Entrance_And_Exit.csv"
+```
+
+```{r}
+Transit_df = read_xlsx("./data/NYC_Transit_Subway_Entrance_And_Exit.csv",
+  range= cell_cols("A:N"))%>%
+janitor::clean_names()%>%
+drop_na(dumpster)%>%
+mutate(
+  sports_balls = round(sports_balls),
+  sports_balls = as.integer(sports_balls)
+)
+View(Trash_Wheel_Collection_Totals_8_6_19)
+
+  
+```
