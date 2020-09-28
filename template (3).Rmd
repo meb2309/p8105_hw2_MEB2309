@@ -25,4 +25,13 @@ View(Trash_Wheel_Collection_Totals_8_6_19)
 
 read precipitation data!
 
+```{r}
+precip_2018 =
+  read_excel(
+    "./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx",
+  sheet = "2018 Precipitation",
+  skip =1 
+  )
+```
+
  
