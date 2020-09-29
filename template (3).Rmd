@@ -72,26 +72,9 @@ NYC_Transit_Subway_Entrance_And_Exit_Data <- read_csv("data/NYC_Transit_Subway_E
 View(NYC_Transit_Subway_Entrance_And_Exit_Data)
 ```
 
-```{r}
-
-
-```
 
 ```{r}
-Transit_data = read_csv(file = "./data/NYC_Transit_Subway_Entrance_And_Exit.csv")
-Transit_data = janitor::clean_names(Transit_data)
-names(Tranist_data)
-
-
-range= cell_cols("A:N"))%>%
-janitor::clean_names()%>%
-drop_na(dumpster)%>%
-mutate(
-  Entry = round(Entry),
-  Entry = as.integer(Entry)
-  
-)
-
-
-  
+transit_df = read_csv(file = "./data/NYC_Transit_Subway_Entrance_And_Exit.csv")
+Transit_data = janitor::clean_names(transit_df)
+names(Tranist_df)
 ```

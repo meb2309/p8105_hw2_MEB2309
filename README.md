@@ -2,3 +2,100 @@
 
 "P8105 Homework 2"
 
+---
+title: "Homework 2"
+author: Maggie Bennett
+output: git_hub document
+---
+
+```{r}
+library (tidyverse)
+library(readxl)
+```
+
+##  Problem 1
+```{r}
+path_to_data = "./data/Trash-Wheel-Collection-Totals-8-19.xlsx"
+```
+
+```{r}
+trashwheel_df = read_xlsx("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx",
+  sheet= "Mr. Trash Wheel",
+  range= cell_cols("A:N"))%>%
+janitor::clean_names()%>%
+drop_na(dumpster)%>%
+mutate(
+  sports_balls = round(sports_balls),
+  sports_balls = as.integer(sports_balls)
+)
+View(Trash_Wheel_Collection_Totals_8_6_19)
+```
+
+read precipitation data!
+
+```{r}
+precip_2018 =
+   read_xlsx("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx",
+  sheet = "2018 Precipitation",
+  skip = 1 
+  ) %>%
+  janitor::clean_names()%>%
+  drop_na(month)%>%
+  mutate (year = 2018)%>%
+  relocate (year)
+  
+  precip_2017 =
+    read_xlsx("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx",
+  sheet = "2017 Precipitation",
+  skip =1 
+  )%>%
+  janitor::clean_names()%>%
+  drop_na(month)%>%
+  mutate (year = 2017)%>%
+  relocate (year)
+```
+
+Combine annual precipitation
+
+```{r}
+month_df=
+  tibble(
+    month = 1:12,
+    month_name = month.name
+  )
+precip_df=
+  bind_rows(precip_2018, precip_2017)
+
+left_join(precip_df, month_df, by = "month")
+```
+## Problem 2
+
+```{r}
+library(readr)
+NYC_Transit_Subway_Entrance_And_Exit_Data <- read_csv("data/NYC_Transit_Subway_Entrance_And_Exit_Data.csv")
+View(NYC_Transit_Subway_Entrance_And_Exit_Data)
+```
+
+```{r}
+
+
+```
+
+```{r}
+Transit_data = read_csv(file = "./data/NYC_Transit_Subway_Entrance_And_Exit.csv")
+Transit_data = janitor::clean_names(Transit_data)
+names(Tranist_data)
+
+
+range= cell_cols("A:N"))%>%
+janitor::clean_names()%>%
+drop_na(dumpster)%>%
+mutate(
+  Entry = round(Entry),
+  Entry = as.integer(Entry)
+  
+)
+
+
+  
+```
