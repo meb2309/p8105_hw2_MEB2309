@@ -73,12 +73,8 @@ View(NYC_Transit_Subway_Entrance_And_Exit_Data)
 ```
 
 ```{r}
-transit_df= "data/NYC_Transit_Subway_Entrance_And_Exit_Data.csv")
-transit_df= janitor::make_clean_names(transit_df)
-```
 
-```{r}
-tail(transit_df)
+
 ```
 
 ```{r}
@@ -87,7 +83,7 @@ Transit_data = janitor::clean_names(Transit_data)
 names(Tranist_data)
 
 
-  range= cell_cols("A:N"))%>%
+range= cell_cols("A:N"))%>%
 janitor::clean_names()%>%
 drop_na(dumpster)%>%
 mutate(
